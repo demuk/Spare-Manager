@@ -4,43 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - Store Manager</title>
+    <title>{{ title }} - Spare Manager </title>
 </head>
 <body>
-    <h3> STORE MANAGER </h3>
 
-    <form action="/home" method="post">
+    <h3>Add Spare</h3>
+
+    <form action="#" method="POST">
         <label for="brand"> Brand: </label>
-        <input type="text" name="brand" id="brand">
+        <input type="text" name="brand" autofocus autocomplete="off" id="brand">
         <br>
         <br>
 
         <label for="model"> Model: </label>
-        <input type="text" name="model" id="model">
+        <input type="text" name="model" autofocus autocomplete="off"  id="model">
         <br>
         <br>
 
         <label for="code"> Code: </label>
-        <input type="number" name="code" id="code">
+        <input type="number" name="code" autofocus autocomplete="off"  id="code">
         <br>
         <br>
 
         <label for="description">Description: </label>
-        <input type="text" name="description" id="description">
+        <input type="text" name="description" autofocus autocomplete="off"  id="description">
         <br>
         <br>
 
         <label for="bin">Bin: </label>
-        <input type="text" name="bin" id="bin">
+        <input type="text" name="bin" autofocus autocomplete="off"  id="bin">
         <br>
         <br>
 
         <label for="Operator">Operator: </label>
-        <input type="text" name="operator" id="operator">
+        <input type="text" name="operator" autofocus  id="operator">
         <br>
 
         <input type="submit" value="Enter">
 
     </form>
+    
 </body>
 </html>
