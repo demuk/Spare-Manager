@@ -8,7 +8,7 @@ from werkzeug.urls import url_parse
 
 @app.route('/index', methods=['POST','GET'])
 @app.route('/', methods=['POST', 'GET'])
-@login_required()
+@login_required
 def index():
     title = 'HOME'
     return render_template('index.html', title=title)

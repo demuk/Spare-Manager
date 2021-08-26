@@ -2,6 +2,7 @@ from app import db
 from datetime import datetime
 from flask_login import UserMixin
 from app import login
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 
@@ -39,4 +40,4 @@ class Spare(db.Model):
 
 @login.user_loader
 def load_user(id):
-    return User.query(int(id))
+    return User.query.get(int(id))
