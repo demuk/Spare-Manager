@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.brand.label }}<br>
+            {{ form.brand(size=128) }}<br>
+        </p>
+        <p>
+            {{ form.model.label }}<br>
+            {{ form.model(size=128) }}<br>
+        </p>
+
+        <p>
+            {{ form.code.label }}<br>
+            {{ form.code(size=128) }}<br>
+        </p>
+
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=128) }}<br>
+        </p>
+
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=128) }}<br>
+        </p>
+
+        <p>{{ form.submit() }}</p>
+    </form>
+
+{% endblock %}
