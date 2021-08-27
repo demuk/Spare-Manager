@@ -1,6 +1,6 @@
 from app import app, db
 from flask import render_template, flash, redirect, url_for, request
-from app.forms import LoginForm, RegisterForm
+from app.forms import LoginForm, RegisterForm, AddSpareForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import Spare, User
 from werkzeug.urls import url_parse
