@@ -1,5 +1,6 @@
+from flask_sqlalchemy import model
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from app.models import User
 
@@ -26,3 +27,11 @@ class RegisterForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please try a different email')
+
+class AddSpareForm(FlaskForm):
+    brand = StringField('Brand',validators=[DataRequired()])
+    model = StringField('Model',validators=[DataRequired()])
+    code = IntegerField('Code', validators=[DataRequired()])
+    location = StringField('Location', validators=[DataRequired()])
+    description = StringField('Description', validators=[DataRequired()])
+    submit = SubmitField('Add')
