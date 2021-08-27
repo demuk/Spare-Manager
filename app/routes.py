@@ -2,7 +2,7 @@ from app import app, db
 from flask import render_template, flash, redirect, url_for, request
 from app.forms import LoginForm, RegisterForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import Spare, User
 from werkzeug.urls import url_parse
 
 
@@ -52,3 +52,17 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+@app.route('/addspare', methods=['GET', 'POST'])
+@login_required
+def addspare():
+    form = (AddSpareForm)
+    if form.validate_on_submit():
+        spare = Spare(brand=form.brand.data, model=form.model.data, code=form.code.data, description=form.description.data, 
+            location=form.location.data)
+        db.session.add(spare)
+        db.session.commit()
+        flash('Spare has been successfully added')
+        return redirect(url_for('index'))
+    return render_template('index.html', title='Home', form=form)
