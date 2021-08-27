@@ -57,7 +57,7 @@ def register():
 @app.route('/addspare', methods=['GET', 'POST'])
 @login_required
 def addspare():
-    form = (AddSpareForm)
+    form = AddSpareForm()
     if form.validate_on_submit():
         spare = Spare(brand=form.brand.data, model=form.model.data, code=form.code.data, description=form.description.data, 
             location=form.location.data)
@@ -65,4 +65,4 @@ def addspare():
         db.session.commit()
         flash('Spare has been successfully added')
         return redirect(url_for('index'))
-    return render_template('index.html', title='Home', form=form)
+    return render_template('addspare.html', title='Home', form=form)
