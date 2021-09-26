@@ -1,5 +1,6 @@
 from flask_sqlalchemy import model
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField , FileAllowed
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from app.models import User
@@ -34,4 +35,5 @@ class AddSpareForm(FlaskForm):
     code = IntegerField('Code', validators=[DataRequired()])
     location = StringField('Location', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
+    image = FileField('Image', validator=[FileAllowed('jpg','png','jpeg')])
     submit = SubmitField('Add')
